@@ -6,6 +6,8 @@
 
         <title>Steam Aggregator</title>
 
+        <link rel="stylesheet" href="css/reset.css" />
+
 	</head>
 
 	<body>
