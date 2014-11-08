@@ -13,7 +13,7 @@
 			<div class="row-fluid">
 				<div class="span4"></div>
 					<div class="span4">
-						<form>
+						<form action="config.php" method="POST">
 						  <fieldset>
 						    <legend>Steam Aggregator</legend>
 						    <label>Enter Steam ID:</label>
