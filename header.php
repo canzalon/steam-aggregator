@@ -8,6 +8,7 @@
         <title>Steam ID Input</title>
 
         <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="css/bootstrap-responsive.css" />
 
         <script language="JavaScript" src="js/bootstrap.js" type="text/javascript">
