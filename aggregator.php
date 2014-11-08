@@ -11,8 +11,8 @@
 						<?php
 
 							echo "<p>";
-							echo "<img src=" . $userArray[avatarfull] . " />";
-							echo "ID: " . $userArray[personaname] . "</p>";
+							echo "<img src=" . $userArray['avatarfull'] . " />";
+							echo "ID: " . $userArray['personaname'] . "</p>";
 							echo "</p>";
 
 						?>
