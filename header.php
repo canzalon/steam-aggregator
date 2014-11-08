@@ -14,4 +14,10 @@
         <script language="JavaScript" src="js/bootstrap.js" type="text/javascript">
         </script>
 
+        <script language="JavaScript" src="js/jquery-2.1.1.js" type="text/javascript">
+        </script>
+
+        <script language="JavaScript" src="js/jquery.tablesorter.js" type="text/javascript">
+        </script>
+
 	</head>

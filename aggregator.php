@@ -29,6 +29,17 @@
 
 				<!-- Results -->
 				<div class="container">
+					<!-- tablesorter -->
+
+					
+
+
+
+
+
+
+
+					<!-- old -->
 					<?php
 
 						$gameArrLength = count($gameArray);
