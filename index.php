@@ -17,7 +17,7 @@
 						  <fieldset>
 						    <legend>Steam Aggregator</legend>
 						    <label>Enter Steam ID:</label>
-						    <input type="text" placeholder="Type something…">
+						    <input type="text" placeholder="Type something…" name="steamid">
 						    <div style="clear:both">
 						    <button type="submit" class="btn">Submit</button>
 						  </fieldset>
