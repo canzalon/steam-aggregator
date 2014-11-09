@@ -1,6 +1,8 @@
 <?php require_once ("header.php") ?>
 <?php require ("config.php") ?>
-<?php $gameArray = doSomeCoolStuff($gameArray); ?>
+<?php $gameArray = doSomeCoolStuff($gameArray); 
+	$genres_all; 
+?>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <body>
 	<div class="container-fluid">
@@ -80,6 +82,9 @@
 								$appid = $game['appid'];
 								$appinfo = file_get_contents("http://store.steampowered.com/api/appdetails/?appids=" . $appid . "&filters=metacritic,genres,price_overview");
 								$app_json = json_decode($appinfo, true);
+								echo "<pre>";
+								print_r($app_json);
+								echo "</pre>";
 								if(isset($app_json[$appid]["data"])){
 									$app_data = $app_json[$appid]["data"];
 								}
@@ -108,9 +113,14 @@
 								// Display Genre
 								if(isset($app_data["genres"])){
 									echo "<td>";
+										
+										
 										foreach($app_data["genres"] as $item) {
-											echo $item["description"] . "<br>";
+											echo $item["description"].'<br /><hr />';
 											//Populate array of Genres for dropdown select
+											/*
+											
+											/*
 											foreach($genres_existing as $existing){
 												if ($item["description"] == $existing)
 												{
@@ -126,7 +136,11 @@
 											}
 											//set switch back to true for next iteration
 											$genre_switch = true;
+											
+											*/
 										}
+
+
 									echo "</td>";
 								} else{ echo "<td style='color: lightgrey;'>N/A</td>";}
 						
@@ -174,4 +188,5 @@
 		    });
 		});    
 	</script>
+	<?php //var_dump($gameArray); ?>
 </body>
