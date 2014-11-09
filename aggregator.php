@@ -28,14 +28,12 @@
 		</div>
 		<!-- Filters -->
 		<div class="row-fluid">
-			<div class="span3">
-				<select multiple>
-					<option value="volvo">Volvo</option>
-					<option value="saab">Saab</option>
-					<option value="opel">Opel</option>
-					<option value="audi">Audi</option>
+			<div class="span12">
+				<select multiple id="all_genres">
+					
 				</select>
 			</div>
+			<!-- 
 			<div class="span3">
 				<input type="text" readonly="" id="hp-amount">
 				<div id="hoursplayed"></div>
@@ -48,6 +46,7 @@
 				<input type="text" readonly="" id="mt-amount">
 				<div id="metacritic"></div>
 			</div>
+			-->
 		</div>
 		<!-- Results -->
 		<div class="container">
@@ -82,12 +81,21 @@
 								$appid = $game['appid'];
 								$appinfo = file_get_contents("http://store.steampowered.com/api/appdetails/?appids=" . $appid . "&filters=metacritic,genres,price_overview");
 								$app_json = json_decode($appinfo, true);
-								echo "<pre>";
-								print_r($app_json);
-								echo "</pre>";
+								
+
+
 								if(isset($app_json[$appid]["data"])){
 									$app_data = $app_json[$appid]["data"];
 								}
+
+
+								
+
+								foreach ($app_data['genres'] as  $g) {
+									$genres_all[$g['description']] = "";
+								}
+
+
 								//Display AppID
 								echo "<td>" . $appid . "</td>";
 								//Display LOGO
@@ -157,8 +165,26 @@
 			</table>
 		</div>
 	</div>
+
+	<?php //var_dump($genres_all); 
+		$g_string = "[";
+		foreach($genres_all as $k => $v){
+			$g_string.= "\"$k\",";
+		}
+		$g_string.="]";
+		echo $g_string;
+	?>
+
 	<script>
 		$(document).ready(function(){
+
+
+			var gen_options = <?php echo $g_string; ?>;
+			$.each(gen_options, function(index, val){
+				$('#all_genres').append("<option value='"+val+"'>"+val+"</option>");
+			});
+			$('#all_genres')
+
 			$( "#hoursplayed" ).slider({
 		      range: true,
 		      min: 0,
@@ -188,5 +214,5 @@
 		    });
 		});    
 	</script>
-	<?php //var_dump($gameArray); ?>
+	
 </body>
