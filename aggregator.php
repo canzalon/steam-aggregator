@@ -1,5 +1,6 @@
 <?php require_once ("header.php") ?>
 <?php require ("config.php") ?>
+<?php $gameArray = doSomeCoolStuff($gameArray); ?>
 
 	<body>
 
@@ -54,6 +55,7 @@
 								foreach ($gameArray as $game)
 								{
 
+								
 
 									echo "<tr>";
 
@@ -77,7 +79,7 @@
 									} else{ echo "<td><a href=http://store.steampowered.com/app/".$appid."><img class='steam_logo' src='img/steam.jpg'/></a></td>"; }
 									
 									echo " <td>";
-									echo $game['name'];
+									echo $game["name"];
 									echo " </td>";
 
 
@@ -94,16 +96,18 @@
 									// Display Genre
 									if(isset($app_data["genres"])){
 										echo "<td>";
-										foreach($app_data["genres"] as $game) {
-											echo $game["description"] . "<br>";
+										foreach($app_data["genres"] as $item) {
+											echo $item["description"] . "<br>";
 										}
 										echo "</td>";
 									} else{ echo "<td style='color: lightgrey;'>N/A</td>";}
 
 									//Avg Playtime
 									
-
-
+									echo "<td>";
+										echo $game["story_hours"];
+									echo "</td>";
+									
 									echo "</tr>";
 								}
 
@@ -165,5 +169,4 @@
 				</div>
 
 		</div>
-
 	</body>

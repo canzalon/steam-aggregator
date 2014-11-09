@@ -76,6 +76,65 @@ else {
 	echo "ERROR 4: GAMEINFO INVALID";
 }
 
+
+
+
+
+
+
+//Functions to add aggragator time
+function get_hours_story($file){
+	
+
+	$before;
+	preg_match_all('/Main Story(.*?)Hours/', $file, $before);	
+	
+	if(sizeof($before[0]) < 1) 
+		return "0 Hours";
+
+	$html = $before[0][0];
+
+	$html = str_replace("&#189;", "", $html);
+
+	$after;
+	preg_match_all('/([0-9]*)(.) Hours/', $html, $after);
+	return $after[0][0];
+}
+
+function doSomeCoolStuff($games){
+	$games_with_times;
+	foreach ($games as $key => $game) {
+		$postdata = http_build_query(
+	    	array(
+	        	'queryString' => $game['name']
+	    	)
+		);
+
+		$opts = array('http' =>
+		    array(
+		        'method'  => 'POST',
+		        'header'  => 'Content-type: application/x-www-form-urlencoded',
+		        'content' => $postdata
+		    )
+		);
+
+		$context  = stream_context_create($opts);
+
+		$result = file_get_contents('http://www.howlongtobeat.com/search_main.php?t=games', false, $context);
+
+		if (strpos($result,'No results') === false) {
+			
+	 		$game['story_hours'] = get_hours_story($result);
+			$games_with_times[]  = $game;
+	    
+		}else{
+			//do nothing
+		}
+
+	}
+	return $games_with_times;
+}
+
 ?>
 
 
