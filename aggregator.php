@@ -101,6 +101,7 @@
 			</div>
 
 			<!-- tablesorter -->
+			<input type="text" class="form-control" id="searchInput"  style="width:100%;" placeholder="Filter Results...">
 			<table id="myTable" class="tablesorter">
 				<thead>
 					<tr>
@@ -113,7 +114,7 @@
 						<th>Avg Playtime</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="gtable">
 					<!-- PHP Produce Rows here <tr> </tr> -->
 					<?php
 						// DISPLAY GAMELIST
@@ -267,6 +268,36 @@
 		        $( "#mt-amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
 		      }
 		    });
+
+
+		    //Filter Function
+		    $("#searchInput").keyup(function(){
+				console.log("Hi");
+				//split value of searchInput
+				var data = this.value;
+				//create jquery obejct of the rows
+				var gametable = $("#gtable").find("tr");
+				if(this.value == ""){
+					gametable.show();
+					return;
+				}
+				//hide all rows
+				gametable.hide();
+
+				//recursively filter the jquery object to get results
+				gametable.filter(function(i, v){
+					var $t = $(this);
+					console.log(data);
+
+					if($t.is(":Contains('"+data+"')")){
+						return true;
+					}
+					return false;
+				})
+				//show the rows that match
+				.show();
+			});
+
 		});    
 	</script>
 	
