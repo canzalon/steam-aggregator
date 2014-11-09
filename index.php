@@ -41,6 +41,7 @@
 			}).success(function(data){
 				console.log(data)
 				if(data.user){
+					$('#error_form_id').hide();
 					$('#good_form_id').fadeIn(2000);
 					$('#agg-form').submit();
 				}else{

@@ -90,7 +90,7 @@ function get_hours_story($file){
 	preg_match_all('/Main Story(.*?)Hours/', $file, $before);	
 	
 	if(sizeof($before[0]) < 1) 
-		return "0 Hours";
+		return "0 or N/A";
 
 	$html = $before[0][0];
 
@@ -98,7 +98,7 @@ function get_hours_story($file){
 
 	$after;
 	preg_match_all('/([0-9]*)(.) Hours/', $html, $after);
-	return $after[0][0];
+	return (int) $after[0][0];
 }
 
 function doSomeCoolStuff($games){
