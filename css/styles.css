@@ -9,3 +9,11 @@
 	font-weight: bold;
 	display: none;
 }
+#good_form_id{
+	color:green;
+	font-weight: bold;
+	display: none; 
+}
+#s{
+	 text-decoration: line-through;
+}

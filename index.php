@@ -5,11 +5,12 @@
 		<div class="row-fluid">
 			<div class="span12"></div>
 			<div class="span12"></div>
-		</div>
+		</div> 
 		<!-- Steam ID input -->
 		<div class="row-fluid">
 			<div class="span4"></div>
 			<div class="span4">
+				<span id="good_form_id">Searching.... this <span id='s'>may</span> <strong>will</strong> take a while! </span>
 				<span id="error_form_id">You Idiot, put in the correct id!!!</span>
 				<form id='agg-form' action="aggregator.php" method="POST">
 					<fieldset>
@@ -38,6 +39,7 @@
 			}).success(function(data){
 				console.log(data)
 				if(data.user){
+					$('#good_form_id').fadeIn(2000);
 					$('#agg-form').submit();
 				}else{
 					$('#error_form_id').fadeIn(2000);
