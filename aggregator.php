@@ -53,15 +53,6 @@
 						</tbody>
 					</table>
 
-					<?php 
-						echo ""
-
-
-
-					?>
-
-
-
 
 
 
@@ -72,15 +63,6 @@
 
 						$gameArrLength = count($gameArray);
 
-						// for ($x = 0; $x < $gameArrLength; $x++)
-						// {
-						// 	echo "<div class='row-fluid'>";
-						// 	echo "<div class='span2'>";
-						// 	echo gameArray[$x]['name'];
-						// 	echo "</div>";
-						// 	echo "</div>";
-						// }
-
 						foreach ($gameArray as $game)
 						{
 							echo "<div class='row-fluid'>";
@@ -89,10 +71,6 @@
 							echo "</div>";
 							echo "</div>";
 						}
-
-
-
-
 
 					?>
 
@@ -130,5 +108,10 @@
 
 		</div>
 
+<script>
+$(function(){
+  $("#myTable").tablesorter();
+});
+</script>
 
 	</body>
