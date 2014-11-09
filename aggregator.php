@@ -124,7 +124,7 @@
 										
 										
 										foreach($app_data["genres"] as $item) {
-											echo $item["description"].'<br /><hr />';
+											echo $item["description"].'<br />';
 											//Populate array of Genres for dropdown select
 											/*
 											
