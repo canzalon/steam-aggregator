@@ -30,8 +30,36 @@
 				<!-- Results -->
 				<div class="container">
 					<!-- tablesorter -->
+					<table id="myTable" class="tablesorter">
+						<thead>
+							<tr>
+								<th>Name</th>
+							</tr>
+						</thead>
+						<tbody>
+							<!-- PHP Produce Rows here <tr> </tr> -->
+							<?php
 
-					
+								foreach ($gameArray as $game)
+								{
+									echo "<tr>";
+									echo " <td>";
+									echo $game['name'];
+									echo " </td>";
+									echo "</tr>";
+								}
+
+							?>
+						</tbody>
+					</table>
+
+					<?php 
+						echo ""
+
+
+
+					?>
+
 
 
 
@@ -101,5 +129,6 @@
 				</div>
 
 		</div>
+
 
 	</body>
