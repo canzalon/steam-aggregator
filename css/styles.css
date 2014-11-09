@@ -3,3 +3,9 @@
 * {
 	font-family: 'Open Sans';
 }
+
+#error_form_id{
+	color:red;
+	font-weight: bold;
+	display: none;
+}

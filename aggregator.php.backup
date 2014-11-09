@@ -1,0 +1,99 @@
+<?php 
+
+
+function get_hours_story($file){
+	
+
+	$before;
+	preg_match_all('/Main Story(.*?)Hours/', $file, $before);	
+	
+	if(sizeof($before[0]) < 1) 
+		return "0 Hours";
+
+	$html = $before[0][0];
+
+	$html = str_replace("&#189;", "", $html);
+
+	$after;
+	preg_match_all('/([0-9]*)(.) Hours/', $html, $after);
+	return $after[0][0];
+}
+
+function doSomeCoolStuff($games){
+	$games_with_times;
+	foreach ($games as $key => $game) {
+		$postdata = http_build_query(
+	    	array(
+	        	'queryString' => $game['name']
+	    	)
+		);
+
+		$opts = array('http' =>
+		    array(
+		        'method'  => 'POST',
+		        'header'  => 'Content-type: application/x-www-form-urlencoded',
+		        'content' => $postdata
+		    )
+		);
+
+		$context  = stream_context_create($opts);
+
+		$result = file_get_contents('http://www.howlongtobeat.com/search_main.php?t=games', false, $context);
+
+		if (strpos($result,'No results') === false) {
+			
+	 		$game['story_hours'] = get_hours_story($result);
+			$games_with_times[]  = $game;
+	    
+		}else{
+			//do nothing
+		}
+
+	}
+	return $games_with_times;
+}
+
+
+
+ ?>
+<?php require_once ("header.php") ?>
+<?php require ("config.php") ?>
+	
+	<body>
+
+		<div class="container-fluid">
+
+				<!-- Filters -->
+				<div class="row-fluid">
+					<div class="span12">
+
+
+					</div>
+				</div>
+
+				<!-- Results -->
+				<div class="container">
+
+					<!-- Header (let this be model for javascript produced html) -->
+					<div class="row-fluid">
+
+						<div class="span2">
+							Game
+						</div>
+
+						<div class="span2">
+
+						</div>
+
+
+					</div>
+				</div>
+
+		</div>
+	
+		<?php 
+			$newGames = doSomeCoolStuff($gameArray);
+			var_dump($newGames);
+		 ?>
+
+	</body>
