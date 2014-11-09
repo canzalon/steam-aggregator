@@ -33,10 +33,13 @@
 					<table id="myTable" class="tablesorter">
 						<thead>
 							<tr>
+								<th>App ID</th>
+								<th></th>
 								<th>Name</th>
 								<th>Hours Played</th>
 								<th>MetaCritic</th>
 								<th>Genre</th>
+								<th>Avg Playtime</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -60,6 +63,9 @@
 									if(isset($app_json[$appid]["data"])){
 										$app_data = $app_json[$appid]["data"];
 									}
+
+									//Display AppID
+									echo "<td>" . $appid . "</td>";
 
 									//Display LOGO
 									if($game['img_logo_url']){
@@ -93,6 +99,10 @@
 										}
 										echo "</td>";
 									} else{ echo "<td style='color: lightgrey;'>N/A</td>";}
+
+									//Avg Playtime
+									
+
 
 									echo "</tr>";
 								}
