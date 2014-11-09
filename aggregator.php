@@ -122,12 +122,12 @@
 													$genre_switch = false;
 												}
 											}
-											
+
 											if ($genre_switch == true) //if true, no match so add to array
 											{
 												//add to genres existing
-												$existing = $item["description"];
-												array_push($existing, $item["description"]); //pushes to genres_existing array
+												$genres_existing = $item["description"];
+												array_push($genres_existing, $item["description"]); //pushes to genres_existing array
 											}
 
 											//set switch back to true for next iteration
