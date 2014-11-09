@@ -7,16 +7,18 @@
 			<div class="span12"></div>
 		</div> 
 		<!-- Steam ID input -->
-		<div class="row-fluid">
+		<div class="row-fluid form_container">
 			<div class="span4"></div>
 			<div class="span4">
 				<span id="good_form_id">Searching.... this <span id='s'>may</span> <strong>will</strong> take a while! </span>
 				<span id="error_form_id">You Idiot, put in the correct id!!!</span>
+				<div id="title">
+					<a href="/"><h1>Steam Aggregator<h1></a>
+				</div>
 				<form id='agg-form' action="aggregator.php" method="POST">
 					<fieldset>
-						<legend>Steam Aggregator</legend>
-						<label>Enter Steam ID:</label>
-						<input type="text" placeholder="Type something…" id='steamid' name="steamid">
+						<br />
+						<input type="text" placeholder="Enter Steam ID..." id='steamid' name="steamid">
 						<div style="clear:both">
 							<button type="submit" id='agg-form-btn' class="btn">Submit</button>
 						</fieldset>

@@ -4,6 +4,66 @@
 	font-family: 'Open Sans';
 }
 
+html, body {
+	height: 100%;
+	background-color: #2d2d2d;
+}
+
+body {
+	background-image: url(../img/steamlogo.png);
+    background-repeat:no-repeat;
+    background-position: 50% 10%;
+}
+
+a {
+	color: blue;
+}
+
+a:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.form_container {
+	text-align: center;
+	margin: 0 auto;
+	position: relative;
+	display: block;
+	top: 120px;
+	width: 300px;
+}
+
+.line-seperator {
+    height: 1px;
+    display: block;
+    margin: 35px auto 15px auto;
+    background:#ececec;
+    border-bottom:1px solid #dadada;
+}
+
+.info_container {
+	text-align: center;
+	margin: 0 auto;
+	width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: block;
+}
+
+	#info_table1, #info_table2 {
+        background-color: #e7e7e7;
+        width: 49%;
+        float: left;
+    }
+
+    #info_table2 { margin-left: 5px; float:right;}
+
+    #info_table1 td:nth-child(1){width:120px;}
+	#info_table2 td:nth-child(1){width:120px;}
+
+#title a { color: #e7e7e7; font-style: none; }
+#title h1 { color: #e7e7e7; font-style: none; }
+
 #error_form_id{
 	color:red;
 	font-weight: bold;
@@ -21,5 +81,9 @@
 #aggr_user_info
 {
 	width: 100%;
+}
+
+#myTable {
+	border-radius: 7px;
 }
 
