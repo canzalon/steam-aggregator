@@ -178,7 +178,7 @@ textarea {
   }
   a,
   a:visited {
-    text-decoration: underline;
+    text-decoration: none;
   }
   a[href]:after {
     content: " (" attr(href) ")";
@@ -226,19 +226,19 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 20px;
-  color: #ffffff;
-  background-color: #000000;
+  color: #002f3f;
+  background-color: #e5e5e5;
 }
 
 a {
-  color: #0088cc;
+  color: #002f3f;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #005580;
-  text-decoration: underline;
+  color: #002f3f;
+  text-decoration: none;
 }
 
 .img-rounded {

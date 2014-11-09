@@ -6,18 +6,25 @@
 
 		<div class="container-fluid">
 
-				<!-- Users -->
+				<!-- Spacer -->
 				<div class="row-fluid">
 					<div class="span12">
-						<?php
+					</div>
+				</div>
 
+				<!-- Users -->
+				<div class="row-fluid">
+					<div class="span2"></div>
+					<div class="span8 text-center">
+						<?php
+							echo "<a href='" . $userArray['profileurl'] ."' ";
 							echo "<p>";
 							echo "<img src=" . $userArray['avatarfull'] . " />";
-							echo "ID: " . $userArray['personaname'] . "</p>";
-							echo "</p>";
-
+							echo "<h1> " . $userArray['personaname'] . "</h1></p>";
+							echo "</p></a>";
 						?>
 					</div>
+					<div class="span2"></div>
 				</div>
 
 				<!-- Filters -->
