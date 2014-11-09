@@ -17,7 +17,8 @@
 					<div class="span2"></div>
 					<div class="span8 text-center">
 						<?php
-							echo "<a href='" . $userArray['profileurl'] ."' ";
+							echo "<a href='" . $userArray['profileurl'] ."' "
+							. "class='btn btn-large btn-inverse disabled'";
 							echo "<p>";
 							echo "<img src=" . $userArray['avatarfull'] . " />";
 							echo "<h1> " . $userArray['personaname'] . "</h1></p>";
