@@ -20,4 +20,7 @@
         <script language="JavaScript" src="js/jquery.tablesorter.js" type="text/javascript">
         </script>
 
+        <script language="JavaScript" src="js/script.js" type="text/javascript">
+        </script>
+
 	</head>
