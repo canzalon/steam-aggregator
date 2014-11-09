@@ -221,7 +221,7 @@
 			$g_string.= "\"$k\",";
 		}
 		$g_string.="]";
-		echo $g_string;
+		//echo $g_string;
 	?>
 
 	<script>
