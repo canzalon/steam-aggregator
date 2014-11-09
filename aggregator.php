@@ -34,7 +34,9 @@
 						<thead>
 							<tr>
 								<th>Name</th>
-								<th></th>
+								<th>Hours Played</th>
+								<th>MetaCritic</th>
+								<th>Genre</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -58,6 +60,15 @@
 									if(isset($app_json[$appid]["data"])){
 										$app_data = $app_json[$appid]["data"];
 									}
+
+									//Display LOGO
+									if($game['img_logo_url']){
+										echo "<td>
+											<a href=http://store.steampowered.com/app/".$appid.">
+											<img class='steam_logo' src='" . "http://media.steampowered.com/steamcommunity/public/images/apps/" . $appid . "/" . $game['img_logo_url'] . ".jpg' />
+											</a>
+											</td>";
+									} else{ echo "<td><a href=http://store.steampowered.com/app/".$appid."><img class='steam_logo' src='img/steam.jpg'/></a></td>"; }
 									
 									echo " <td>";
 									echo $game['name'];
