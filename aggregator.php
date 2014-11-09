@@ -34,18 +34,55 @@
 						<thead>
 							<tr>
 								<th>Name</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
 							<!-- PHP Produce Rows here <tr> </tr> -->
 							<?php
+								// DISPLAY GAMELIST
+								$total_worth = 0;
+								$total_playtime = 0;
+								$unplayed_games = 0;
 
+								//Produce row for each game
 								foreach ($gameArray as $game)
 								{
+
+
 									echo "<tr>";
+
+									$appid = $game['appid'];
+									$appinfo = file_get_contents("http://store.steampowered.com/api/appdetails/?appids=" . $appid . "&filters=metacritic,genres,price_overview");
+									$app_json = json_decode($appinfo, true);
+									if(isset($app_json[$appid]["data"])){
+										$app_data = $app_json[$appid]["data"];
+									}
+									
 									echo " <td>";
 									echo $game['name'];
 									echo " </td>";
+
+
+									//Display Playtime
+									echo "<td>" . round($game['playtime_forever']/60) . " hour(s)</td>";
+									$total_playtime = $total_playtime + $game['playtime_forever']/60;
+									if($game['playtime_forever'] == '0') { $unplayed_games++; }
+
+									//Display Metascore
+									if(isset($app_data["metacritic"]["url"])){
+										echo "<td><a href=". $app_data["metacritic"]["url"] . ">" . $app_data["metacritic"]["score"] . "</a></td>";
+									} else{ echo "<td style='color: lightgrey;'>0 or N/A</td>";}
+
+									// Display Genre
+									if(isset($app_data["genres"])){
+										echo "<td>";
+										foreach($app_data["genres"] as $game) {
+											echo $game["description"] . "<br>";
+										}
+										echo "</td>";
+									} else{ echo "<td style='color: lightgrey;'>N/A</td>";}
+
 									echo "</tr>";
 								}
 
@@ -107,11 +144,5 @@
 				</div>
 
 		</div>
-
-<script>
-$(function(){
-  $("#myTable").tablesorter();
-});
-</script>
 
 	</body>
