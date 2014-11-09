@@ -90,7 +90,7 @@ function get_hours_story($file){
 	preg_match_all('/Main Story(.*?)Hours/', $file, $before);	
 	
 	if(sizeof($before[0]) < 1) 
-		return "0 or N/A";
+		return '<span style="color: lightgrey;">0 or N/A</span>';
 
 	$html = $before[0][0];
 
