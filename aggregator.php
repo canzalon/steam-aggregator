@@ -1,6 +1,7 @@
 <?php require_once ("header.php") ?>
 <?php require ("config.php") ?>
 <?php $gameArray = doSomeCoolStuff($gameArray); ?>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <body>
 	<div class="container-fluid">
 		<!-- Spacer -->
@@ -33,9 +34,18 @@
 					<option value="audi">Audi</option>
 				</select>
 			</div>
-			<div class="span3"></div>
-			<div class="span3"></div>
-			<div class="span3"></div>
+			<div class="span3">
+				<input type="text" readonly="" id="hp-amount">
+				<div id="hoursplayed"></div>
+			</div>
+			<div class="span3">
+				<input type="text" readonly="" id="avgp-amount">
+				<div id="avgplayed"></div>
+			</div>
+			<div class="span3">
+				<input type="text" readonly="" id="mt-amount">
+				<div id="metacritic"></div>
+			</div>
 		</div>
 		<!-- Results -->
 		<div class="container">
@@ -133,4 +143,35 @@
 			</table>
 		</div>
 	</div>
+	<script>
+		$(document).ready(function(){
+			$( "#hoursplayed" ).slider({
+		      range: true,
+		      min: 0,
+		      max: 500,
+		      values: [ 75, 300 ],
+		      slide: function( event, ui ) {
+		        $( "#hp-amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		      }
+		    });
+		    $( "#avgplayed" ).slider({
+		      range: true,
+		      min: 0,
+		      max: 500,
+		      values: [ 75, 300 ],
+		      slide: function( event, ui ) {
+		        $( "#avgp-amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		      }
+		    });
+		    $( "#metacritic" ).slider({
+		      range: true,
+		      min: 0,
+		      max: 500,
+		      values: [ 75, 300 ],
+		      slide: function( event, ui ) {
+		        $( "#mt-amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
+		      }
+		    });
+		});    
+	</script>
 </body>

@@ -12,11 +12,13 @@
         <link rel="stylesheet" href="css/bootstrap-responsive.css" />
         <link rel="stylesheet" href="css/table_styles.css" />
 
+         <script language="JavaScript" src="js/jquery-2.1.1.js" type="text/javascript">
+        </script>
+        
         <script language="JavaScript" src="js/bootstrap.js" type="text/javascript">
         </script>
 
-        <script language="JavaScript" src="js/jquery-2.1.1.js" type="text/javascript">
-        </script>
+       
 
         <script language="JavaScript" src="js/jquery.tablesorter.js" type="text/javascript">
         </script>
