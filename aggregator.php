@@ -59,6 +59,10 @@
 								$total_playtime = 0;
 								$unplayed_games = 0;
 
+								$current_genre = 0;
+								$genres_existing = array();
+								$genre_switch = true; //assume true until proven otherwise
+
 								//Produce row for each game
 								foreach ($gameArray as $game)
 								{
@@ -106,9 +110,36 @@
 										echo "<td>";
 										foreach($app_data["genres"] as $item) {
 											echo $item["description"] . "<br>";
+
+
+
+											//Populate array of Genres for dropdown select
+											foreach($genres_existing as $existing){
+
+												if ($item["description"] == $existing)
+												{
+													// $existing = $item["description"];
+													$genre_switch = false;
+												}
+											}
+											
+											if ($genre_switch == true) //if true, no match so add to array
+											{
+												//add to genres existing
+												$existing = $item["description"];
+												array_push($existing, $item["description"]); //pushes to genres_existing array
+											}
+
+											//set switch back to true for next iteration
+											$genre_switch = true;
+
+
+
 										}
 										echo "</td>";
 									} else{ echo "<td style='color: lightgrey;'>N/A</td>";}
+
+			
 
 									//Avg Playtime
 									
