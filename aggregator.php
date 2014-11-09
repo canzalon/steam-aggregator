@@ -121,59 +121,6 @@
 							?>
 						</tbody>
 					</table>
-
-
-
-
-
-
-					<!-- old -->
-					<?php
-
-						$gameArrLength = count($gameArray);
-
-						foreach ($gameArray as $game)
-						{
-							echo "<div class='row-fluid'>";
-							echo "<div class='span2'>";
-							echo $game['name'];
-							echo "</div>";
-							echo "</div>";
-						}
-
-					?>
-
-					<!-- Header (let this be model for javascript produced html) -->
-					<div class="row-fluid">
-
-						<div class="span2">
-							Game
-						</div>
-
-						<div class="span2">
-
-						</div>
-
-						<div class="span2">
-							
-						</div>
-
-						<div class="span2">
-							
-						</div>
-
-						<div class="span2">
-							
-						</div>
-
-						<div class="span2">
-							
-						</div>
-
-					</div>
-
-
 				</div>
-
 		</div>
 	</body>
